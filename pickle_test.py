@@ -4,7 +4,8 @@ from pickler import list_pickler, unpickler
 
 class PicklerTests(unittest.TestCase):
     def setUp(self):
-        os.open("pickle_test.p", os.O_RDWR|os.O_CREAT)
+        test_file = os.open("pickle_test.p", os.O_RDWR|os.O_CREAT)
+        os.close(test_file)
     def pickled_list_no_change_test(self):
 
         #old code - ignore me
