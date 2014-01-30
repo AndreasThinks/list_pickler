@@ -5,7 +5,7 @@ from pickler import list_pickler, unpickler
 class PicklerTests(unittest.TestCase):
     def setUp(self):
         os.open("pickle_test.p", os.O_RDWR|os.O_CREAT)
-    def pickled_list_no_change(self):
+    def pickled_list_no_change_test(self):
 
         #old code - ignore me
         #tester = open('pickle_test.p','r+')
@@ -13,9 +13,8 @@ class PicklerTests(unittest.TestCase):
         #pickle.dump(my_list,tester)
         #another_list = pickle.load(tester)
         #tester.close()
-        
-        my_list = list_pickler()[0]
-        file_loc = list_pickler()[1]
+        my_list = ["cheese","ham"]
+        file_loc = list_pickler(my_list)
         another_list = unpickler(file_loc)
 
         self.assertEqual(my_list,another_list)
